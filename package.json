@@ -10,11 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/aghaffar570/DS_JS.git"
   },
-  "keywords": ["Data Structures"],
+  "keywords": [
+    "Data Structures"
+  ],
   "author": "aghaffar570",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aghaffar570/DS_JS/issues"
   },
-  "homepage": "https://github.com/aghaffar570/DS_JS#readme"
+  "homepage": "https://github.com/aghaffar570/DS_JS#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2"
+  }
 }
