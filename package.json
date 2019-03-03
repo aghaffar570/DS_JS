@@ -1,0 +1,20 @@
+{
+  "name": "DS_JS",
+  "version": "1.0.0",
+  "description": "implementing DS in JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aghaffar570/DS_JS.git"
+  },
+  "keywords": ["Data Structures"],
+  "author": "aghaffar570",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aghaffar570/DS_JS/issues"
+  },
+  "homepage": "https://github.com/aghaffar570/DS_JS#readme"
+}
