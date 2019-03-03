@@ -12,7 +12,7 @@ class SinglyLinkedList {
     this.length = 0;
   }
 
-  prepend(item) {
+  addHead(item) {
     const newNode = new Node(item);
 
     if(!this.tail) {
@@ -29,7 +29,6 @@ class SinglyLinkedList {
   }
 
   removeHead() {
-
     if(!this.head) return undefined;
     this.length--;
 
@@ -42,4 +41,39 @@ class SinglyLinkedList {
     return removedHead;
   }
 
+  addTail(item) {
+    const newNode = new Node(item);
+
+    if(!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+      return this;
+    }
+
+    this.tail.next = newNode;
+    this.tail = newNode;
+
+    this.length++;
+    return this;
+  }
+
+  removeTail() {
+    if(!this.head) return null;
+    this.length--;
+
+    let currentNode = this.head;
+    let newTail;
+
+    while(currentNode.next) {
+      newTail = currentNode;
+      currentNode = currentNode.next;
+    }
+
+    this.tail = newTail;
+    this.tail.next = null;
+
+    if(!this.length) this.head = this.tail = null;
+
+    return currentNode;
+  }
 }
