@@ -1,9 +1,11 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
+/*
+ node -> node -> node -> node -> null
+ dynamic size, better memory usage than arrays
+ O(1) insertion for front/ end, O(n) at specifc index
+ O(1) deletion for front only, O(n) at specfic index/ end
+ O(n) searching/ access in non-contiguous memory
+*/
+
 
 class SinglyLinkedList {
   constructor() {
@@ -169,5 +171,14 @@ class SinglyLinkedList {
     }
 
     return this;
+  }
+}
+
+
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
   }
 }
