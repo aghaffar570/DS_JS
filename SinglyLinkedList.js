@@ -76,20 +76,44 @@ class SinglyLinkedList {
 
     return currentNode;
   }
-  
+
   indexOf(item) {
-		let currentNode = this.head;
-		let index = -1;
+  	let currentNode = this.head;
+  	let index = -1;
 
-		while(currentNode) {
-			index++;
-			if(currentNode.value === item) {
-				return index;
-			}
-			currentNode = currentNode.next; 
-		}
+  	while(currentNode) {
+  		index++;
+  		if(currentNode.value === item) {
+  			return index;
+  		}
+  		currentNode = currentNode.next;
+  	}
 
-		return false;
+  	return false;
 	}
-  
+
+  getItemAt(index) {
+    if(index < 0 || index >= this.length) return undefined;
+
+    let currentNode = this.head;
+    let count = 0;
+
+    while(count < index) {
+      count++;
+      currentNode = currentNode.next;
+    }
+
+    return currentNode;
+  }
+
+  setValue(index, newValue) {
+    const foundNode = this.getItemAt(index);
+
+    if(foundNode) {
+      foundNode.value = newValue;
+      return true;
+    }
+
+    return false;
+  }
 }
