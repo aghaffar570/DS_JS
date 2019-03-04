@@ -78,19 +78,19 @@ class SinglyLinkedList {
   }
 
   indexOf(item) {
-  	let currentNode = this.head;
-  	let index = -1;
+    let currentNode = this.head;
+    let index = -1;
 
-  	while(currentNode) {
-  		index++;
-  		if(currentNode.value === item) {
-  			return index;
-  		}
-  		currentNode = currentNode.next;
-  	}
+    while(currentNode) {
+      index++;
+      if(currentNode.value === item) {
+        return index;
+      }
+      currentNode = currentNode.next;
+    }
 
-  	return false;
-	}
+    return false;
+  }
 
   getItemAt(index) {
     if(index < 0 || index >= this.length) return undefined;
@@ -115,5 +115,43 @@ class SinglyLinkedList {
     }
 
     return false;
+  }
+
+  addItemAt(item, index) {
+
+    if(index < 0 || index > this.length) return false;
+    if(index === 0) return this.addHead(item);
+    if(index === this.length) return this.addTail(item);
+
+    const newNode = new Node(item);
+
+    const previousNode = this.getItemAt(index - 1);
+    const followingNode = previousNode.next;
+
+    previousNode.next = newNode;
+    newNode.next = followingNode;
+
+    this.length++;
+    return this;
+  }
+
+  removeAt(index) {
+
+    let currentNode = this.head;
+    let previousNode = null;
+    let count = 0;
+
+    if(index < 0 || index >= this.length) return false;
+    if(index === 0) return this.removeHead();
+    if(index === this.length - 1) return this.removeTail();
+
+    const previousNode = this.getItemAt(index - 1);
+    const removeNode = previousNode.next;
+    previousNode.next = removeNode.next;
+
+    removeNode.next = null;
+
+    this.length--;
+    return removeNode;
   }
 }
