@@ -118,7 +118,6 @@ class SinglyLinkedList {
   }
 
   addItemAt(item, index) {
-
     if(index < 0 || index > this.length) return false;
     if(index === 0) return this.addHead(item);
     if(index === this.length) return this.addTail(item);
@@ -136,7 +135,6 @@ class SinglyLinkedList {
   }
 
   removeAt(index) {
-
     let currentNode = this.head;
     let previousNode = null;
     let count = 0;
@@ -153,5 +151,23 @@ class SinglyLinkedList {
 
     this.length--;
     return removeNode;
+  }
+
+  reverseList() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+
+    let followingNode;
+    let previousNode = null;
+
+    for(let i = 0; i < this.length; i++) {
+      followingNode = node.next;
+      node.next = previousNode;
+      previousNode = node;
+      node = followingNode;
+    }
+
+    return this;
   }
 }
