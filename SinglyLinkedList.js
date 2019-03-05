@@ -138,7 +138,6 @@ class SinglyLinkedList {
 
   removeAt(index) {
     let currentNode = this.head;
-    let previousNode = null;
     let count = 0;
 
     if(index < 0 || index >= this.length) return false;
