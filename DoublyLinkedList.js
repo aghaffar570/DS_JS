@@ -78,6 +78,33 @@ class DoublyLinkedList {
     return removeTail;
   }
 
+  getItemAt(index) {
+    if(index < 0 || index >= this.length) return undefined;
+
+    const direction = index >= Math.floor(this.length / 2)
+      ? 'prev'
+      : 'next';
+
+    let currentNode, count, interval;
+
+    if(direction === 'prev') {
+      currentNode = this.tail;
+      count = this.length - 1;
+      interval = -1;
+    }else {
+      currentNode = this.head;
+      count = 0;
+      interval = 1;
+    }
+
+    while(count !== index) {
+      currentNode = currentNode[direction];
+      count += interval;
+    }
+
+    return current
+  }
+
 }
 
 
