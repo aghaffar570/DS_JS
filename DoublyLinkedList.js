@@ -105,6 +105,55 @@ class DoublyLinkedList {
     return current
   }
 
+  setAtIndex(index, newValue) {
+    const foundNode = this.getItemAt(index);
+
+    if(foundNode) {
+      foundNode.value = newValue;
+      return foundNode;
+    }
+
+    return false;
+  }
+
+  insertAt(index, val) {
+    if(index < 0 || index > this.length) return undefined;
+    if(!index) return this.addToHead(val);
+    if(index === this.length) return this.addToTail(val);
+
+    const newNode = new Node(val);
+    const followingNode = this.getItemAt(index);
+    const previousNode = followingNode.prev;
+
+    previousNode.next = newNode;
+    newNode.prev = previousNode;
+
+    newNode.next = followingNode;
+    followingNode.prev = newNode;
+
+    this.length++;
+    return this;
+  }
+
+  removeAt(index) {
+    if(index < 0 || index >= this.length) return undefined;
+    if(!index) return this.removeFromHead();
+    if(index === this.length - 1) return this.removeFromTail();
+
+    const removedNode = this.getItemAt(index);
+    const previousNode = removedNode.prev;
+    const followingNode = removedNode.next;
+
+    previousNode.next = followingNode;
+    followingNode.prev = previousNode;
+
+    removedNode.prev = null;
+    removedNode.next = null;
+
+    this.length--;
+    return removedNode;
+  }
+
 }
 
 
