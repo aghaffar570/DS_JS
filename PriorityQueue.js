@@ -1,4 +1,3 @@
-
 class PriorityQueue {
   constructor() {
     this.head = null;
